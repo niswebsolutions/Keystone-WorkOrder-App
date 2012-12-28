@@ -1,0 +1,528 @@
+.clearfix:after {
+content:".";
+display:block;
+height:0;
+clear:both;
+visibility:hidden;
+}
+.clearfix {display:inline-block;}
+/* Hide from IE Mac \*/
+.clearfix {display:block;}
+/* End hide from IE Mac */
+
+/* Page */
+body {
+background: url(images/bg.jpg) repeat-y center top !important;
+background-color: #aeac96 !important;
+}
+
+.ui-page {
+background: transparent !important;
+}
+
+div.messages.status {
+background-color: transparent;
+}
+
+h3.size {
+    float: left;
+    margin-right: 5%;
+    min-width: 90px;
+}
+
+h1 {
+margin: 10px;
+font-size: 16px !important;
+}
+
+.ui-li-desc {
+margin-top: 5px !important;
+}
+
+.new-comment .grid-1 {
+width: 60%;
+float: left;
+}
+
+.new-comment .grid-2 {
+width: 40%;
+float: left;
+text-align: center;
+}
+
+.new-comment .grid-2 .section {
+position: relative;
+bottom: 0;
+}
+
+.new-comment textarea {
+height: 10px;
+}
+
+.new-comment #comment-send {
+width: 80%;
+float: right;
+}
+
+.new-comment {
+margin-bottom: 30px;
+}
+
+
+#comment-feed .name {
+color: gray;
+font-size: 10px;
+}
+
+#comment-feed .created {
+font-size: 10px;
+color: gray;
+}
+
+#active-work-orders .address {
+font-size: 11px;
+}
+
+.comment.ui-li-desc {
+width: 80%;
+font-weight: bold;
+font-size: 14px;
+}
+
+
+h1 {
+text-align: center;
+font-size: 24px;
+}
+
+/* header */
+
+.ui-header #logo {
+display: block;
+margin: auto;
+width: 70px;
+padding-top: 5px;
+}
+
+.ui-header #logo img {
+width: 70px;
+}
+
+.ui-header .ui-btn-corner-all {
+border-radius: .5em !important;
+}
+
+.ui-header.ui-bar-a {
+background: none !important;
+border: none !important;
+}
+
+/* Navbar */
+
+.footer .ui-navbar {
+box-shadow: 0 27px 21px 23px black;
+}
+
+
+/* Login Page */
+
+#powered-logo img {
+float: right;
+width: 60%;
+max-width: 300px;
+margin-right: 20px;
+}
+
+
+#login-container {
+max-width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+/* True Home Page */
+
+#page_true_home_page #logo, #page_login #logo {
+width: 80%;
+max-width: 330px;
+margin-left: auto;
+margin-right: auto;
+position: relative;
+margin-top: 10px;
+}
+
+#logo img {
+width: 100%;
+}
+
+#page_true_home_page .grid-container {
+position: relative;
+margin-top: -15px;
+}
+
+#page_true_home_page .grid-container .icons {
+width:100%;
+margin-left: auto;
+margin-right: auto;
+position: relative;
+max-width: 700px;
+}
+
+
+#page_true_home_page .icons .container {
+background: none;
+padding:10px;
+margin: 10px;
+}
+
+#page_true_home_page .icons .container:hover {
+background: none repeat scroll 0 0 rgba(254, 254, 254, 0.3);
+padding:10px;
+margin: 10px;
+border-radius: 15px;
+}
+
+#page_true_home_page .icons div {
+text-align: center;
+}
+
+#page_true_home_page a {
+text-decoration: none;
+color: black;
+}
+
+#page_true_home_page .icons img {
+width: 80%;
+max-width: 122px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.footer ul {
+margin: 0;
+}
+
+/* Page Node */
+
+#page_node .node-data {
+background: white;
+padding: 10px;
+box-shadow: 0 12px 18px -14px black;
+font-size: 15px;
+}
+
+#page_node .node-data .title {
+border-bottom: 1px solid black;
+margin-bottom: 0;
+margin-top: 6px;
+font-size: 21px;
+}
+
+#page_node .label {
+margin: 0;
+padding: 0;
+color: black;
+}
+
+#page_node h1 {
+margin-bottom: 0;
+}
+
+#node-start-clock {
+float: right;
+margin-top: -5px;
+}
+
+#node-stop-clock {
+float: right;
+margin-top: -5px;
+}
+
+#page_node .content .label {
+margin-top: 10px;
+}
+
+/* Comment List */
+
+#page_comment_list #comment-feed .ui-li-heading {
+margin-left: 10px;
+font-size: 14px;
+color: black;
+}
+
+#page_comment_list .order-number {
+font-size: 14px;
+}
+
+#page_comment_list li .body {
+margin-left: 10px;
+}
+
+/* Work Order List */
+
+ul.order-list .order-number {
+margin-left: 10px;
+margin-top: -8px;
+margin-bottom: -6px;
+}
+
+ul.order-list .ui-li-count {
+padding: 8px;
+}
+
+ul.order-list .clocked-in {
+background: #59dd52;
+}
+
+ul.order-list li .priority {
+right: 68px;
+padding: 0;
+background: none;
+border: none;
+padding-top:3px;
+color: red;
+font-size: 12px;
+text-shadow: 0 1px 1px #ffffff;
+}
+
+.content .ui-li-count {
+background: #ffffff;
+border-color: #D6D6D6;
+}
+
+.order-list.ui-listview-inset {
+margin: 0;
+}
+
+.order-list .ui-li-heading {
+margin-left: 10px;
+font-size: 14px;
+color: black;
+}
+
+.order-list .ui-li-desc {
+margin-left: 10px;
+}
+
+ul.order-list .scheduled-date {
+margin-top: -5px !important;
+}
+
+ul.order-list .completed {
+width: 30px;
+}
+
+ul.order-list .paused {
+width: 30px;
+}
+
+/* work order */
+
+
+#page_node .node-data .label {
+font-weight: bold;
+}
+
+
+#page_node h1 {
+color: #CACACA;
+font-size: 15px;
+margin: 0;
+margin-bottom: -13px;
+}
+
+#page_node #work-order-icon {
+width: 50px;
+float: right;
+}
+
+.node-data .status {
+font-size: 10px;
+display: inline;
+margin-right: 10px;
+}
+
+.node-data .date {
+font-size: 10px;
+display: inline;
+}
+
+.node-data #description-work-edit, .node-data #order-status-edit {
+margin-bottom: -4px;
+}
+
+.node-data .decsription-work-text {
+margin-top: 13px;
+}
+
+#page_node span.CLOCKED-IN {
+color: green;
+}
+
+/* TimeClock */
+
+#timeclock .ui-li-static.ui-li {
+padding: 0 !important;
+}
+
+#timelog-list {
+font-size: 12px;
+margin-top: 10px;
+}
+
+#timelog-list .container {
+padding: 5px;
+margin-bottom: 3px;
+}
+
+#timelog-list .closed {
+background: #F2F2F2;
+border: 1px solid #C8C8C8;
+}
+
+#timelog-list .open {
+background: #f5f6a0;
+border: 1px solid #dfe20a;
+}
+
+#timelog-list .hrs {
+float: right;
+font-weight: bold;
+font-size: 14px;
+}
+
+#timelog-list .start, #timelog-list .end {
+float: right;
+clear: both;
+}
+
+#timelog-list h3 {
+margin: 0;
+}
+
+/* Map page */
+
+#page_map h1 {
+margin: 0;
+}
+
+
+/* Work Order Photos page */
+
+#page_node_pictures ul#Gallery {
+margin: 0;
+padding: 0; 
+margin-top: -10px;
+}
+
+#page_node_pictures #Gallery li {
+display: inline;
+margin: 0;
+padding: 0;
+margin-right: 4px;
+}
+
+/* Work Order Materials */
+
+#materials-feed .bill-resident {
+color: red;
+display: block;
+font-size: 12px;
+}
+
+#page_node_add_materials h1 {
+margin: 0;
+}
+
+#materials-feed li img {
+margin: 0;
+margin-right:-20px;
+}
+
+#materials-feed li .receipt-icon {
+margin: 10px;
+width: 30px;
+}
+
+#materials-feed li.ui-li-has-thumb a {
+padding-left: 50px;
+min-height: 30px;
+}
+
+#materials-feed li .receipt-thumb, #materials-feed li .receipt-fid {
+display: none;
+}
+
+/* Work Order Voice Notes */
+
+#voice-notes-feed .ui-li-aside {
+font-size: 10px;
+}
+
+
+#voice-notes-feed span {
+font-size: 10px;
+margin-left: 10px;
+}
+
+
+/* Comment Inbox */
+
+#comment-feed-inbox .button {
+width: 15px;
+height: 15px;
+background-color: transparent;
+position: absolute;
+top: 50%;
+border-radius: 20px;
+margin-top: -8px;
+margin-left: -5px;
+}
+
+#comment-feed-inbox .button.unread {
+background-image: -webkit-linear-gradient(top, #ABE3FF 0%, #307CEF 100%);
+}
+
+#comment-feed-inbox h3 {
+margin-left: 10px;
+} 
+
+/* FrontPage */
+
+#unreadmessages .number {
+position: absolute;
+background-image: -webkit-linear-gradient(top, #FF8A8A 0%, #EF1F1F 100%);
+border-radius: 19px;
+text-align: center;
+color: white;
+border: 2px solid white;
+padding: 0px 6px;
+right: 13%;
+margin-top: 0;
+font-size: 16px;
+font-weight: normal;
+-webkit-box-shadow: 0px 3px 7px -2px black;
+}
+
+
+
+/* Material Edit Dialog */
+
+#add-receipt-photo {
+max-width: 135px;
+margin: 13px 0;
+}
+
+#receiptPhotoContainer img {
+border: 3px solid white;
+margin: 10px;
+margin-left: 0;
+}
+
+#page_node_edit_materials .savebox {
+margin-top: 10px;
+}
+

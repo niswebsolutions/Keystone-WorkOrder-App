@@ -1,0 +1,384 @@
+<!doctype html>
+
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">    
+        <title>Work Order Pro</title>
+       	<link rel="stylesheet" href="style.css" />
+       	<link rel="stylesheet" href="my-custom-theme.min.css" />
+       	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile.structure-1.1.0.min.css" /> 
+		<link rel="stylesheet" type="text/css" href="jquery.countdown.css" />                  
+		<link rel="stylesheet" type="text/css" href="photoswipe.css" />                  
+		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+		<script type="text/javascript" charset="utf-8" src="scripts/custom-scripts.js"></script>
+		<script type="text/javascript" charset="utf-8" src="jquery.countdown.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="MapKitPlug.js"></script>
+		<script type="text/javascript" charset="utf-8" src="klass.min.js"></script>		
+		<script type="text/javascript" charset="utf-8" src="code.photoswipe-3.0.4.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>										
+    </head>
+<body>
+
+
+<div data-role="page" data-theme="a" class="page" id="page_login">
+  	<div id="logo"><img src="images/logo.png"></div>
+  <div data-role="content" class='content'>
+   <div id="login-container"> 
+    <div>
+      <label for="page_login_name">Username</label>
+      <input type="text" id="page_login_name" />
+    </div>
+    <div>
+      <label for="page_login_pass">Password</label>
+      <input type="password" id="page_login_pass" />
+    </div>
+    <fieldset>
+      <div><button type="button" id="page_login_submit">Login</button></div>
+    </fieldset>
+   </div><!--/loginConatainer --> 
+  </div><!-- /content -->
+  <div id="powered-logo" class="clearfix"><img src="images/powered-logo.png"></div>	
+<script type="text/javascript" charset="utf-8" src="scripts/login.js"></script>  
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_true_home_page"> 
+  	<div id="logo"><img src="images/logo.png"></div>
+  <div data-role="content" class='content'>
+	<div class="grid-container"> 
+	 <div class="ui-grid-a icons">
+		<div class="ui-block-a"><div class="container"><a href="#page_home_page"><img src="images/work-order.png">Work Order</a></div></div>
+		<div class="ui-block-b messages"><div class="container"><a href="#page_comment_list"><span id='unreadmessages'></span><img src="images/messages.png">Messages</a></div></div>
+		<!--<div class="ui-block-a"><div class="container"><a href="#page_map"><img src="images/map.png">Map</a></div></div>-->
+		<div class="ui-block-b"><div class="container"><a href="#page_time_clock"><img src="images/time-clock.png">Time Log</a></div></div>
+		<!--<div class="ui-block-a"><div class="container"><a href="#"><img src="images/settings.png">Settings</a></div></div>-->
+		<div class="ui-block-b"><div class="container"><a href="#" id="logout"><img src="images/logout.png">Log Out</a></div></div>				
+	</div><!-- /grid-b -->
+   </div><!--/grid-container -->
+  </div><!-- /content -->
+   	<script type="text/javascript" charset="utf-8" src="scripts/home.js"></script>
+	<script type="text/javascript" charset="utf-8" src="scripts/logout.js"></script>
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_home_page"> 
+  <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a data-role="button" data-rel="back">Back</a> 	
+     <a onclick="refreshAssignedOrders()" data-role="button" data-iconpos="notext" data-icon="refresh">Refresh</a>	
+  </div><!-- /header -->
+  <h1>Assigned Orders</h1>
+  <div data-role="content" class='content'>
+    <ul id="assigned-work-orders" class="order-list" data-inset="true" data-role="listview">
+    	
+    </ul>
+  </div><!-- /content -->
+  <div class="footer" data-theme="a" data-position="fixed" data-tap-toggle="false">  	
+	<div data-role="navbar">
+		<ul>
+			<li><a data-theme="a"href="#page_home_page" class="ui-btn-active">Assigned Orders</a></li>
+			<li><a data-theme="a"href="#page_orders_general">General Orders</a></li>			
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer -->  
+  <script type="text/javascript" charset="utf-8" src="scripts/assigned-orders.js"></script>  
+</div><!-- /page -->
+
+
+<div data-role="page" data-theme="a" class="page" id="page_orders_general"> 
+  <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a data-role="button" data-rel="back">Back</a>
+     <a onclick="refreshGeneralOrders()" data-role="button" data-iconpos="notext" data-icon="refresh">Refresh</a>	      	
+  </div><!-- /header -->
+  <h1>General Orders</h1>
+  <div data-role="content" class='content'>
+    <ul id="active-general-work-orders" class="order-list" data-inset="true" data-role="listview">
+    
+    </ul>
+  </div><!-- /content -->
+  <div class="footer" data-theme="a" data-position="fixed" data-tap-toggle="false">  	
+	<div data-role="navbar">
+		<ul>
+			<li><a data-theme="a"href="#page_home_page">Assigned Orders</a></li>
+			<li><a data-theme="a"href="#page_orders_general" class="ui-btn-active">General Orders</a></li>			
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer -->  
+  <script type="text/javascript" charset="utf-8" src="scripts/general-orders.js"></script>  
+</div><!-- /page -->
+
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node" data-currentnid="2"> 
+  <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a data-role="button" data-rel="back">Back</a>
+     <a onclick="refreshPageNode()" data-role="button" data-iconpos="notext" data-icon="refresh">Refresh</a>
+  </div><!-- /header -->
+  <div data-role="content" class='content'>
+  	<div class="node-data">
+  	    <div id="clock-container"></div>     	
+  		<h3 class="title"></h3>
+  		<div class="status"></div>	
+  		<div class="date"></div>
+  		<div class="name"></div>
+  		<div class="location"></div>
+  		<div class="contact-number"></div>
+  		<div class="email"></div>
+  		<div class="description"></div>
+  		<div class="assigned-users"></div>
+  		<div class="job-type"></div>
+  		<div class="label">Description of Work Done:<a href="#page_node_work_done_edit" id="description-work-edit" data-inline="true" data-mini="true" data-role="button" data-iconpos="notext" data-icon="gear" data-rel="dialog">Edit</a></div><div class="decsription-work-done-text"></div>
+  	    <div class="label">Order Status:<a href="#page_node_status_edit" id="order-status-edit" data-inline="true" data-mini="true" data-role="button" data-iconpos="notext" data-icon="gear" data-rel="dialog">Edit</a></div><div class="order-status">Pending</div>
+  	</div>
+  	<div class="time-clock-log"></div>
+  	<div class="photo-container"></div>
+  </div><!-- /content -->  
+  <div class="footer" data-theme="a" data-position="fixed" data-tap-toggle="false">  	
+	<div data-role="navbar">
+		<ul>
+			<li><a data-theme="a"href="#page_node" class="ui-btn-active">Order</a></li>
+			<li><a data-theme="a"href="#page_node_pictures">Photos</a></li>
+			<li><a data-theme="a"href="#page_node_comments">Chat</a></li>
+			<li><a data-theme="a"href="#page_node_materials">Materials</a></li>
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer -->
+<script type="text/javascript" charset="utf-8" src="scripts/page_node.js"></script>  
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_work_done_edit">
+ <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+ </div>
+  <div data-role="content" class='content'>
+  	<h1>Description of Work Done</h1>
+  	<textarea name="textarea" id="textarea-a">
+  	
+	</textarea>
+    <a id="submit-work-done-edit" data-role="button">Save</a>	
+  </div><!-- /content --> 
+<script type="text/javascript" charset="utf-8" src="scripts/page_node_work_done_edit.js"></script>    
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_status_edit">
+ <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+ </div>
+  <div data-role="content" class='content'>
+  	<div class="invoice-number"></div>
+  	<h1>Change Work Order Status</h1>
+	<div data-role="fieldcontain">
+		<select name="select-choice-1" id="list-work-order-status"></select>
+	</div>
+	<button onclick="submitStatusChange()" id="submit-change-status" data-theme="a" type="submit">Submit</button>	
+  </div><!-- /content --> 
+  <script type="text/javascript" charset="utf-8" src="scripts/page_node_status_edit.js"></script>    
+</div><!-- /page -->
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_pictures">
+ <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a data-role="button" data-rel="back">Back</a>
+     <a onclick="takePhoto()" id="add-photo" data-role="button" data-icon="plus">Pic</a>  	  	
+ </div>
+ <h1>Photo Gallery</h1> 
+  <div data-role="content" class='content'>
+   <ul id="Gallery">
+ 	 	  	  	
+  	</ul>  	
+  </div><!-- /content -->
+  <div class="footer" data-theme="a" data-position="fixed">  	
+	<div data-role="navbar">
+		<ul>
+			<li><a data-theme="a"href="#page_node">Order</a></li>		
+			<li><a data-theme="a"href="#page_node_pictures" class="ui-btn-active">Photos</a></li>
+			<li><a data-theme="a"href="#page_node_comments">Chat</a></li>
+			<li><a data-theme="a"href="#page_node_materials">Materials</a></li>		
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer -->    
+<script type="text/javascript" charset="utf-8" src="scripts/page_node_pictures.js"></script>    
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_comments">
+  <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+  	<a data-role="button" data-rel="back">Back</a>
+  	<a href="#page_comment_list" data-icon="arrow-u" class="ui-btn-right" data-role="button">Inbox</a>
+  </div><!-- /header -->
+  <div data-role="content" class='content'>
+  	<div class="new-comment clearfix">
+		<div class="grid-1 clearfix">
+			<textarea name="textarea" id="new-comment-area"></textarea>
+		</div>
+		<div class="grid-2 clearfix"><div class="section">
+			<a onclick="submitComment()" id="comment-send" data-role="button">Send</a>
+		</div></div>
+	</div><!-- /new-comment -->
+  	<ul id="comment-feed" data-role="listview" data-theme="b">
+
+  	</ul>
+  </div><!-- /content --> 
+  <div class="footer" data-theme="a" data-position="fixed">  	
+	<div data-role="navbar">
+		<ul>
+			<li><a data-theme="a"href="#page_node">Order</a></li>	
+			<li><a data-theme="a"href="#page_node_pictures">Photos</a></li>
+			<li><a data-theme="a"href="#page_node_comments" class="ui-btn-active">Chat</a></li>
+			<li><a data-theme="a"href="#page_node_materials">Materials</a></li>		
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer --> 
+<script type="text/javascript" charset="utf-8" src="scripts/page_node_comments.js"></script>   
+</div><!-- /page -->
+
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_materials">
+ <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a data-role="button" data-rel="back">Back</a>
+     <a onclick="startAddNewMaterial()" href="#page_node_edit_materials" id="add-material" data-role="button" data-icon="plus">Mat.</a>  	  	
+ </div>
+ <h1>Materials Used</h1> 
+  <div data-role="content" class='content'>
+  	<ul id="materials-feed" data-role="listview" data-theme="b">
+
+  	</ul>
+  </div><!-- /content -->
+  <div class="footer" data-position="fixed" data-theme="a">  	
+	<div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a data-theme="a"href="#page_node">Order</a></li>	
+			<li><a data-theme="a" href="#page_node_pictures">Photos</a></li>
+			<li><a data-theme="a" href="#page_node_comments">Chat</a></li>
+			<li><a data-theme="a" href="#page_node_materials" class="ui-btn-active">Materials</a></li>
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer -->    
+<script type="text/javascript" charset="utf-8" src="scripts/page_node_materials.js"></script>    
+</div><!-- /page -->
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_edit_materials">
+ <div data-role="header" data-theme="c">
+ 	<a data-rel="back">Cancel</a>
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>  	  	
+ </div>
+  <div data-role="content" class='content'>
+  	<h1>Add New Item</h1>
+  	<label for="item-name">Item Name:</label>
+    <input type="text" name="item-name" id="item-name" value=""  />
+  	<label for="item-name">Cost:</label>
+    <input type="text" name="item-name" id="item-cost" value=""  />
+    <label for="flip-a">Bill Resident:</label>
+	<select id="bill-to-resident" name="slider" id="flip-a" data-role="slider">
+		<option value="off">No</option>
+		<option value="on">Yes</option>
+	</select>
+	<div id="receiptPhotoContainer"></div>
+	<a onclick="takeRecieptPhoto()" id="add-receipt-photo" data-role="button" data-icon="plus">Receipt</a>
+	<div data-role="controlgroup" class="savebox">
+		<a data-role="button" onclick="materialsVariables()">Save Item</a>
+		<a id="deleteMaterial" data-role="button" onclick="deleteMaterial()">Delete Item</a>
+	</div>	
+  </div><!-- /content -->
+  <script type="text/javascript" charset="utf-8" src="scripts/page_node_edit_materials.js"></script>     
+</div><!-- /page -->
+
+
+<div data-role="page" data-theme="a" class="page" id="page_node_voice-notes">
+ <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a data-role="button" data-rel="back">Back</a>
+     <a id="add-voice-note" data-role="button" data-iconpos="notext" data-icon="plus">Add Voice Note</a>  	  	
+ </div>
+ <h1>Voice Notes</h1> 
+  <div data-role="content" class='content'>
+	<ul id="voice-notes-feed" data-role="listview" data-theme="b">
+  	 <li><a>apotter <span>2 days ago.</span><div class='ui-li-aside'>2 min.</div></a></li>
+  	 <li><a>mpotter <span>3 days ago.</span><div class='ui-li-aside'>1 min.</div></a></li>
+  	</ul>
+  </div><!-- /content -->	
+  <div class="footer" data-theme="a" data-position="fixed">  	
+	<div data-role="navbar">
+		<ul>
+			<li><a data-theme="a"href="#page_node_pictures">Photos</a></li>
+			<li><a data-theme="a"href="#page_node_comments">Chat</a></li>
+			<li><a data-theme="a"href="#page_node_materials">Materials</a></li>		
+			<li><a data-theme="a"href="#page_node_voice-notes" class="ui-btn-active">Voice Notes</a></li>													
+		</ul>
+	</div><!-- /navbar -->
+  </div><!-- /footer -->    
+<script type="text/javascript" charset="utf-8" src="scripts/page_node_voice-notes.js"></script>    
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_comment_list" data-add-back-btn="true">
+  <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a href="#page_true_home_page" data-role="button">Back</a>  
+     <a onclick="refreshPageCommentList()" data-role="button" data-iconpos="notext" data-icon="refresh">Refresh</a>	
+  </div><!-- /header -->
+  <div data-role="content" class='content'>
+  	<ul id="comment-feed-inbox" data-role="listview">
+
+  	</ul>
+  </div><!-- /content -->
+<script type="text/javascript" charset="utf-8" src="scripts/page_comment_list.js"></script>      
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_map">
+  <div data-role="header" data-theme="c">
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+     <a href="#page_true_home_page" data-role="button" data-rel="back">Back</a> 
+     <a class="refresh" data-role="button" data-icon="refresh" data-iconpos="notext">Refresh</a>
+  </div><!-- /header -->
+  <h1>Map</h1>
+  <div data-role="content" class='content'>
+  </div><!-- /content --> 
+</div><!-- /page -->
+
+
+
+<div data-role="page" data-theme="a" class="page" id="page_time_clock">
+  <div data-role="header" data-theme="c">     
+  	<div id="logo"><a href="#page_true_home_page"><img src="images/logo-white.png"></a></div>
+    <a data-role="button" data-rel="back">Back</a>  	  	
+  </div><!-- /header -->
+  <div data-role="content" class='content'>
+	 <div id="timeclock">
+  		<a onclick="clockOutBegin()" data-role="button" id="stopClock">Stop Clock</a> 	  		 	
+  		<div class="display">You are not clocked in to any work order.</div>
+  	</div>
+  	<div id="timelog-list">
+
+  	</div><!-- /timelog-list -->
+  </div><!-- /content --> 
+<script type="text/javascript" charset="utf-8" src="scripts/page_time_clock.js"></script>      
+</div><!-- /page -->
+
+
+
+
+</body>
+    
+</html>
